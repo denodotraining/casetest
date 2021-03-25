@@ -1,0 +1,5 @@
+﻿# REQUIRES-PROPERTIES-FILE - # Do not remove this comment!
+UNDEPLOY IF EXISTS WEBSERVICE bv_cc_service_location;
+
+DEPLOY WEBSERVICE bv_cc_service_location LOGIN = '${databases.denodo_training.webcontainer.webservices.bv_cc_service_location.LOGIN}' PASSWORD = '${databases.denodo_training.webcontainer.webservices.bv_cc_service_location.PASSWORD}' ${databases.denodo_training.webcontainer.webservices.bv_cc_service_location.PASSWORD.ENCRYPTED};
+

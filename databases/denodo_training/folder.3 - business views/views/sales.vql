@@ -1,0 +1,15 @@
+﻿CREATE OR REPLACE INTERFACE VIEW sales (
+        employeeid:text,
+        productid:text,
+        customerid:text,
+        saleid:text,
+        saledate:text,
+        bundleamount:text,
+        productsaleprice:text,
+        totalprice:text
+    )
+    FOLDER = '/3 - business views';
+
+ALTER VIEW sales
+ LAYOUT ("d3f065e3-8e31-4b75-a85d-d2f09d8bbe64" = [338, 104, 200, 201]);
+

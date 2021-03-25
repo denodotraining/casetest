@@ -1,0 +1,31 @@
+﻿# REQUIRES-PROPERTIES-FILE - # Do not remove this comment!
+CREATE OR REPLACE WRAPPER JDBC sravan
+    DATASOURCENAME=testing
+    CATALOGNAME='${databases.denodo_training.views.jdbc.sravan.CATALOGNAME}' 
+    SCHEMANAME='${databases.denodo_training.views.jdbc.sravan.SCHEMANAME}' 
+    RELATIONNAME='sravan' 
+    OUTPUTSCHEMA (
+        id = 'id' :'java.lang.Integer' (OPT) (sourcetypedecimals='0', sourcetyperadix='10', sourcetypesize='10', sourcetypeid='4', sourcetypename='int')  SORTABLE,
+        valve = 'valve' :'java.lang.Integer' (OPT) (sourcetypedecimals='0', sourcetyperadix='10', sourcetypesize='10', sourcetypeid='4', sourcetypename='int')  SORTABLE,
+        cash = 'cash' :'java.lang.Integer' (OPT) (sourcetypedecimals='0', sourcetyperadix='10', sourcetypesize='10', sourcetypeid='4', sourcetypename='int')  SORTABLE
+    );
+
+CREATE OR REPLACE TABLE sravan I18N au_cst (
+        id:int (sourcetypeid = '4', sourcetyperadix = '10', sourcetypedecimals = '0', sourcetypesize = '10'),
+        valve:int (sourcetypeid = '4', sourcetyperadix = '10', sourcetypedecimals = '0', sourcetypesize = '10'),
+        cash:int (sourcetypeid = '4', sourcetyperadix = '10', sourcetypedecimals = '0', sourcetypesize = '10')
+    )
+    CACHE OFF
+    TIMETOLIVEINCACHE DEFAULT
+    ADD SEARCHMETHOD sravan(
+        I18N au_cst
+        CONSTRAINTS (
+             ADD id (any) OPT ANY
+             ADD valve (any) OPT ANY
+             ADD cash (any) OPT ANY
+        )
+        OUTPUTLIST (cash, id, valve
+        )
+        WRAPPER (jdbc sravan)
+    );
+

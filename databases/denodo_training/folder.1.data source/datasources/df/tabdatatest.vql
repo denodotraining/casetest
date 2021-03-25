@@ -1,0 +1,8 @@
+﻿# REQUIRES-PROPERTIES-FILE - # Do not remove this comment!
+CREATE OR REPLACE DATASOURCE DF "TabDataTest"
+    FOLDER = '/1.data source'
+    ROUTE LOCAL 'LocalConnection' '${databases.denodo_training.folder.1..data source.datasources.df.tabdatatest.ROUTE.LOCAL.PATH}'
+    COLUMNDELIMITER = ','
+    ENDOFLINEDELIMITER = '\n'
+    HEADER = TRUE;
+

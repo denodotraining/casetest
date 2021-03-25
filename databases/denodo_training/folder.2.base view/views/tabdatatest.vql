@@ -1,0 +1,23 @@
+﻿CREATE OR REPLACE WRAPPER DF "TabDataTest"
+    FOLDER = '/2.base view'
+    DATASOURCENAME="TabDataTest"
+    OUTPUTSCHEMA (
+        "ID	氏名" = 'ID	氏名' (OPT)
+    );
+
+CREATE OR REPLACE TABLE "TabDataTest" I18N us_pst (
+        "ID	氏名":text
+    )
+    FOLDER = '/2.base view'
+    CACHE OFF
+    TIMETOLIVEINCACHE DEFAULT
+    ADD SEARCHMETHOD "TabDataTest"(
+        I18N us_pst
+        CONSTRAINTS (
+             ADD "ID	氏名" (any) OPT ANY
+        )
+        OUTPUTLIST ("ID	氏名"
+        )
+        WRAPPER (df "TabDataTest")
+    );
+

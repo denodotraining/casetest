@@ -1,0 +1,12 @@
+﻿CREATE OR REPLACE INTERFACE VIEW employee_sales (
+        employeeid:text,
+        total_sales:long,
+        total_price:decimal,
+        start_date:localdate,
+        end_date:localdate
+    )
+    FOLDER = '/4 - report views';
+
+ALTER VIEW employee_sales
+ LAYOUT ("_3c3db7fb-332e-40b4-902f-0d8c1de2fdeb" = [390, 20, 200, 126]);
+

@@ -1,0 +1,26 @@
+﻿CREATE OR REPLACE REST WEBSERVICE bv_cc_service_location
+    CONNECTION (
+        CHUNKSIZE = 1000
+        CHUNKTIMEOUT = 90000
+        QUERYTIMEOUT = 900000
+        POOLENABLED = true
+        POOLINITSIZE = 0
+        POOLMAXACTIVE = 30
+    )
+    DEFAULTREPRESENTATION = HTML
+    SUPPORTEDREPRESENTATIONS (HTML, XML, JSON)
+    RESOURCES (
+        VIEW bv_cc_service_location FIELDS (
+            id : 'decimal', 
+            location_id : 'decimal', 
+            customer_id : 'decimal', 
+            business_name : 'text', 
+            service_location : 'text', 
+            other_details : 'text'
+        )
+    )
+    OPTIONS ( NULLVALUESASEMPTYXMLELEMENTS = false
+        PROCESS_FUNCTIONS_IN_SELECT_PARAMETER = true ) 
+    OPENAPI2 ( API_VERSION = '1.0.0' ) 
+    FOLDER = '/1 - connectivity/2 - base views';
+

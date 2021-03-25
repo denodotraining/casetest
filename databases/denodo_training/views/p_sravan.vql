@@ -1,0 +1,5 @@
+﻿CREATE OR REPLACE VIEW p_sravan AS SELECT sravan.id AS id, sravan.valve AS valve, cash AS cash FROM sravan;
+
+ALTER VIEW p_sravan
+ LAYOUT (sravan = [20, 20, 200, 65]);
+
